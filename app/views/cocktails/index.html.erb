@@ -1,16 +1,25 @@
-<h1>Mes cocktails</h1>
+<div class="navbar navbar-expand-sm navbar-light navbar-cocktail">
+  <i id="icon" class="fas fa-heart"></i>
 
-<%= link_to "Add a new cocktail", new_cocktail_path, class: 'btn btn-primary' %>
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search Cocktails" aria-label="Search">
+    <span><i class='fas fa-search'></i></span>
+  </form>
+
+  <%= link_to "Add New Cocktail", new_cocktail_path, class: 'btn btn-flat' %>
+</div>
+
+
 <br>
 <div class="container">
   <div class="row">
     <% @cocktails.each do |cocktail| %>
       <div class="col-12 col-md-6 col-lg-3">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/500x400/?cocktail');">
+        <div class="card">
           <div class="card-description">
             <h2><%= cocktail.name %></h2>
           </div>
-          <%= link_to "", cocktail_path(cocktail), class: 'card-link' %>
+          <%= link_to "details", cocktail_path(cocktail), class: 'card-link' %>
         </div>
       </div>
     <% end %>
